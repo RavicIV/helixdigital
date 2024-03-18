@@ -3,7 +3,7 @@ import { ICityBlock } from "@/app/types";
 import InputField from "../inputField/inputField";
 import { useState } from "react";
 
-function CityBlock({ title }: ICityBlock) {
+function CityBlock({ title, cityNum, fetchCity }: ICityBlock) {
   const [coordinates, setCoordinates] = useState({
     lat: 0,
     lon: 0,
@@ -14,7 +14,6 @@ function CityBlock({ title }: ICityBlock) {
       ...coordinates,
       [e.target.name]: Number(e.target.value),
     });
-    console.log("changed---", coordinates);
   };
 
   return (
@@ -36,7 +35,9 @@ function CityBlock({ title }: ICityBlock) {
           handleChange={setCoords}
         />
       </div>
-      <button>Search City</button>
+      <button onClick={()=>fetchCity(coordinates.lat,coordinates.lon,cityNum)}>Search City</button>
+
+      {}
     </div>
   );
 }

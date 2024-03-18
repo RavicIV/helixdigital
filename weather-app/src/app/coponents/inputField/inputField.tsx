@@ -4,7 +4,7 @@ import "./inputField.css";
 function InputField({ type, name, title, value, handleChange }: IInputField) {
   return (
     <>
-      <label for={name}>{title}:</label>
+      <label htmlFor={name}>{title}:</label>
       <input
         type={type}
         id={name}

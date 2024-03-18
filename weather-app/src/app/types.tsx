@@ -1,12 +1,25 @@
-export interface IInputField extends ICityBlock {
+export interface IInputField {
   name: string;
   type: string;
   value: number;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {};
+  title: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface ICitiesContainer {
+    fetchCity: (lat: number, lon: number, cityNum: number)=>void;
+}
+
+export interface IWeatherBlock {
+    title: string;
+    cityNum: number;
+    city: ICity
 }
 
 export interface ICityBlock {
   title: string;
+  cityNum: number;
+  fetchCity: ()=>{};
 }
 
 export interface ICity {
