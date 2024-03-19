@@ -35,7 +35,11 @@ function CityBlock({ title, cityNum, fetchCity }: ICityBlock) {
           handleChange={setCoords}
         />
       </div>
-      <button onClick={()=>fetchCity(coordinates.lat,coordinates.lon,cityNum)}>Search City</button>
+      <button
+        onClick={() => fetchCity(coordinates.lat, coordinates.lon, cityNum)}
+      >
+        Search City
+      </button>
 
       {}
     </div>

@@ -16,10 +16,9 @@ export interface IWeatherBlock {
   city: ICity;
 }
 
-export interface ICityBlock {
+export interface ICityBlock extends ICitiesContainer {
   title: string;
   cityNum: number;
-  fetchCity: () => {};
 }
 
 export interface IWeatherContainer {
