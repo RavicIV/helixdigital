@@ -4,15 +4,21 @@ import InputField from "../inputField/inputField";
 import { useState } from "react";
 
 function WeatherBlock({ title, cityNum, city }: IWeatherBlock) {
-
+    let classes = (city.weather.map(weather=>weather.main).join(' '));
+console.log(classes);
   return (
-    <div>
+    <div className={classes} >
       <div>{title} {cityNum}</div>
-      <div>{city.name}</div>
+      <div>{city.name ? city.name : 'City not found'} 
+      {city.weather.map((weather, i)=><img key={i} src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="" />
+    )}</div>
       <div>Temperature: {city.main.temp}°C</div>  
       <div>Humidity: {city.main.humidity}%</div> 
-      <div>Wind: {city.wind.speed} km/h</div>
-      <div></div>
+      <div>Wind: {city.wind.speed} km/h {city.wind.deg}°</div>
+      {city.weather.map((weather, i)=>
+        <div key={i}>Weather: {weather.main} - {weather.description}</div>
+    )}
+      
 
     </div>
   );

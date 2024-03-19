@@ -4,9 +4,10 @@ import CitiesContainer from "./coponents/citiesContainer/citiesContainer";
 // import StoreProvider from "./coponents/storeProvider/StoreProvider";
 import WeatherContainer from "./coponents/weatherContainer/weatherContainer";
 import { useState, useEffect } from "react";
+import { ICity } from "./types";
 
 export default function Home() {
-  const [cities, setCities] = useState([{}, {}]);
+  const [cities, setCities] = useState([{} as ICity, {} as ICity]);
 
   const fetchCity = function(lat:number,lon:number,cityNum:number) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}&units=metric`)

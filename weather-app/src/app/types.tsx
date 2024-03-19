@@ -7,19 +7,23 @@ export interface IInputField {
 }
 
 export interface ICitiesContainer {
-    fetchCity: (lat: number, lon: number, cityNum: number)=>void;
+  fetchCity: (lat: number, lon: number, cityNum: number) => void;
 }
 
 export interface IWeatherBlock {
-    title: string;
-    cityNum: number;
-    city: ICity
+  title: string;
+  cityNum: number;
+  city: ICity;
 }
 
 export interface ICityBlock {
   title: string;
   cityNum: number;
-  fetchCity: ()=>{};
+  fetchCity: () => {};
+}
+
+export interface IWeatherContainer {
+  cities: ICity[];
 }
 
 export interface ICity {
@@ -53,7 +57,8 @@ export interface ICity {
     gust: number;
   };
   rain: {
-    "1h": number;
+    "1h"?: number;
+    "3h"?: number;
   };
   clouds: {
     all: number;
