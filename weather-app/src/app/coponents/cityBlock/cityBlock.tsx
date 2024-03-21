@@ -3,8 +3,6 @@ import { ICityBlock } from "@/app/types";
 import InputField from "../inputField/inputField";
 import { useState } from "react";
 
-// import "./cityBlock.css";
-
 function CityBlock({ title, cityNum, getCity }: ICityBlock) {
   const [coordinates, setCoordinates] = useState({
     lat: 0,
@@ -40,7 +38,9 @@ function CityBlock({ title, cityNum, getCity }: ICityBlock) {
         />
       </div>
       <button
-        onClick={() => getCity({lat: coordinates.lat, lon:coordinates.lon, cityNum})}
+        onClick={() =>
+          getCity({ lat: coordinates.lat, lon: coordinates.lon, cityNum })
+        }
         className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Search City

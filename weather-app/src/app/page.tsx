@@ -1,7 +1,6 @@
 "use client";
 
 import CitiesContainer from "./coponents/citiesContainer/citiesContainer";
-// import StoreProvider from "./coponents/storeProvider/StoreProvider";
 import WeatherContainer from "./coponents/weatherContainer/weatherContainer";
 import { useState, useEffect } from "react";
 import { ICity } from "./types";
@@ -20,12 +19,10 @@ export default function Home() {
   }, [searchCity]);
 
   return (
-    // <StoreProvider>
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="text-3xl font-bold" >Weather Comparison</div>
+      <div className="text-3xl font-bold">Weather Comparison</div>
       <CitiesContainer getCity={setSearchCity} />
       <WeatherContainer cities={cities} />
     </main>
-    // </StoreProvider>
   );
 }

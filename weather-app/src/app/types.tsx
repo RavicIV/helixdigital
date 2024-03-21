@@ -14,7 +14,7 @@ export interface IGetCity {
 }
 
 export interface ICitiesContainer {
-  getCity: ({lat, lon, cityNum}: IGetCity) => void;
+  getCity: ({ lat, lon, cityNum }: IGetCity) => void;
 }
 
 export interface IWeatherBlock {

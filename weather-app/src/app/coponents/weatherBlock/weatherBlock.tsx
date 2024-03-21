@@ -5,12 +5,12 @@ function WeatherBlock({ title, cityNum, city }: IWeatherBlock) {
   let classes = city.weather.map((weather) => weather.main).join(" ");
 
   return (
-    <div className={`${classes} HDcontainer`} style={{
-      backgroundColor: `rgba(239, 71, 111, ${city.clouds.all/100})`
-    }}>
-      {/* <div>
-        {title} {cityNum}
-      </div> */}
+    <div
+      className={`${classes} HDcontainer`}
+      style={{
+        backgroundColor: `rgba(239, 71, 111, ${city.clouds.all / 100})`,
+      }}
+    >
       <div className="text-2xl font-bold">
         {city.name ? city.name : "City not found"}
         {city.weather.map((weather, i) => (

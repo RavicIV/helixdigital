@@ -1,8 +1,10 @@
 import { APIKEY } from "./constants";
 import { ICity } from "./types";
 
-export const cityFetch = async function (lat: number, lon: number): Promise<ICity> {
-//   let city = {};
+export const cityFetch = async function (
+  lat: number,
+  lon: number
+): Promise<ICity> {
   return await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}&units=metric`
   )
@@ -12,6 +14,4 @@ export const cityFetch = async function (lat: number, lon: number): Promise<ICit
     .then((data) => {
       return data;
     });
-
-    // return city as ICity;
 };
