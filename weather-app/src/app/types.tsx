@@ -3,11 +3,18 @@ export interface IInputField {
   type: string;
   value: number;
   title: string;
+  minMax: number;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface IGetCity {
+  lat: number;
+  lon: number;
+  cityNum: number;
+}
+
 export interface ICitiesContainer {
-  fetchCity: (lat: number, lon: number, cityNum: number) => void;
+  getCity: ({lat, lon, cityNum}: IGetCity) => void;
 }
 
 export interface IWeatherBlock {

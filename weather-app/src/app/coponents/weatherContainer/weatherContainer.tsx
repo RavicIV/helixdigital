@@ -7,7 +7,7 @@ export default function WeatherContainer({ cities }: IWeatherContainer) {
   console.log(cities);
   return (
     <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-2 lg:text-left">
-      <div>
+    <div>
         {cities[0].coord ? (
           <WeatherBlock
             title="First City"
@@ -15,8 +15,8 @@ export default function WeatherContainer({ cities }: IWeatherContainer) {
             city={cities[0]}
           ></WeatherBlock>
         ) : null}
-      </div>
-      <div>
+        </div>
+        <div>
         {cities[1].coord ? (
           <WeatherBlock
             title="Second City"
@@ -24,7 +24,7 @@ export default function WeatherContainer({ cities }: IWeatherContainer) {
             city={cities[1]}
           ></WeatherBlock>
         ) : null}
-      </div>
+        </div>
     </div>
   );
 }

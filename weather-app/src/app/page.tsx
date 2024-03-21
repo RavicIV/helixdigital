@@ -1,26 +1,29 @@
 "use client";
-import { APIKEY } from "./constants";
+
 import CitiesContainer from "./coponents/citiesContainer/citiesContainer";
 // import StoreProvider from "./coponents/storeProvider/StoreProvider";
 import WeatherContainer from "./coponents/weatherContainer/weatherContainer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ICity } from "./types";
 import { cityFetch } from "./utils";
 
 export default function Home() {
   const [cities, setCities] = useState([{} as ICity, {} as ICity]);
+  const [searchCity, setSearchCity] = useState({ lat: 0, lon: 0, cityNum: 0 });
 
-  const fetchCity = function (lat: number, lon: number, cityNum: number) {
-    let newCity = cityFetch(lat, lon) as ICity;
-    setCities([
-      ...cities.map((city, i) => (i === cityNum ? city : newCity)),
-    ]);
-  };
+  useEffect(() => {
+    cityFetch(searchCity.lat, searchCity.lon).then((data: ICity) =>
+      setCities([
+        ...cities.map((city, i) => (i === searchCity.cityNum ? city : data)),
+      ])
+    );
+  }, [searchCity]);
 
   return (
     // <StoreProvider>
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <CitiesContainer fetchCity={fetchCity} />
+      <div className="text-3xl font-bold" >Weather Comparison</div>
+      <CitiesContainer getCity={setSearchCity} />
       <WeatherContainer cities={cities} />
     </main>
     // </StoreProvider>
